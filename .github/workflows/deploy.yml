@@ -1,6 +1,5 @@
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,8 +17,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: List dist files
+        run: ls -R dist
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v3
         with:
-          folder: dist
-          branch: gh-pages
+          name: dist
+          path: dist/
