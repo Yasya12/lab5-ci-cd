@@ -1,6 +1,9 @@
 name: Deploy to GitHub Pages 🚀
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -26,6 +29,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages     # Or your deployment branch
-          folder: dist         # Vite output folder
+          branch: gh-pages
+          folder: dist
           clean: true
