@@ -6,8 +6,8 @@ on:
       - main
   workflow_dispatch:
 
-  permissions:
-  contents: write
+permissions:
+  contents: write  # This grants permission to push to the repo
 
 jobs:
   build:
